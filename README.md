@@ -1,6 +1,6 @@
 # MerakiOps ReAct Agent
 
-Dokument popisuje rýchly štart a verifikáciu troch základných use‑cases agenta postaveného na **LangGraph (ReAct)** s Meraki API.
+Dokument popisuje rýchly štart a verifikáciu troch základných use‑cases agenta postaveného na **LangGraph (ReAct)** s Meraki API. Nepoužili LiteLLM, ale dávam vám na výber OpenAI API alebo lokálny ollama model.
 
 ## O projekte
 
@@ -9,6 +9,16 @@ Agent dokáže:
 - vylistovať siete a zariadenia zo zvolenej Meraki organizácie a uložiť ich do lokálnej DB (SQLite),
 - získať **WAN utilisation** (uplinks usage) naprieč sieťami a uložiť výsledky,
 - získať **LAN utilisation** pre **Meraki MS** (switch) – status/traffic portov za zvolený interval.
+
+## Ukážka výstupov
+Výstup tabuľky Devices pri použití príkazu bootstrap
+![SQL databáza - ukážka č. 1](výstupy/sqlite3-1.png)
+
+Výstup tabuľky Networks pri použití príkazu bootstrap
+![SQL databáza - ukážka č. 1](výstupy/sqlite3-2.png)
+
+Ukážka správy v MS Teams kanáli cez Webhook
+![MS Team odpoveď Agenta AI](výstupy/Teams.png)
 
 ## Požiadavky
 
@@ -67,13 +77,22 @@ WAN utilization za posledných 6 hodín bol úspešne získaný a uložený do '
 ### 3) LAN utilisation pre konkrétny switch (MS)
 
 ```bash
-uv run -m src.app lan Q2FY-5L2V-W8F6 --minutes 60
+uv run -m src.app lan Q234-ABCD-1234 --minutes 60
 ```
 
 **Očakávaný výstup** (prípad, keď zariadenie nie je MS switch):
 
 ```
-Zdá sa, že zariadenie s sériovým číslom Q2FY-5L2V-W8F6 nie je podporované pre LAN využitie, pretože tento endpoint podporuje iba zariadenia Meraki MS (switch). Môžem ti pomôcť s niečím iným?
+Zdá sa, že zariadenie s sériovým číslom Q234-ABCD-1234 nie je podporované pre LAN využitie, pretože tento endpoint podporuje iba zariadenia Meraki MS (switch). Môžem ti pomôcť s niečím iným?
+```
+### 4) komunikácia s serpAPI od Google a odpoveď do MS Teams
+
+```bash
+uv run -m src.app chat "Vyhľadaj nové hrozby pre Meraki tento týždeň a pošli zhrnutie do Teams"
+```
+**Očakávaný výstup CLI**
+```
+Zhrnutie nových hrozieb pre Meraki tento týždeň bolo úspešne odoslané do Teams. Obsahovalo odkazy na relevantné stránky.
 ```
 
 ---
@@ -109,7 +128,4 @@ for t in ("networks","devices","wan_usage","switch_ports_usage"):
 PY
 ```
 
----
-
-*Ak chceš, viem doplniť aj sekciu o Microsoft Teams webhook notifikáciách a vyhľadávaní bezpečnostných hrozieb cez SerpAPI (príklady príkazov, formát výstupov).*
 
