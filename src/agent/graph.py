@@ -84,4 +84,11 @@ def _llm():
 # --- ReAct agent v LangGraph ---
 def build_agent():
     model = _llm()
-    return create_react_agent(model, TOOLS)
+    SYS = (
+        "Si MerakiOps ReAct agent. VŽDY použi tooly, nie halucinácie.\n"
+        "- WAN => zavolaj tool `wan_utilization(timespan_hours=...)`.\n"
+        "- LAN => zavolaj `lan_utilization` s formátom 'SERIAL;MINUTES' a vysvetli, "
+        "  ak zariadenie nie je MS switch.\n"
+        "Odpovedaj stručne po slovensky."
+    )
+    return create_react_agent(model, TOOLS, prompt=SYS)

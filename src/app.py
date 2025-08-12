@@ -34,7 +34,7 @@ def wan(hours: int = 6):
 def lan(serial: str, minutes: int = 60):
     """Skratka: LAN utilizácia pre switch SERIAL za N minút (uloží do DB)."""
     agent = build_agent()
-    out = agent.invoke({"messages": [("user", f"Získaj LAN pre {serial};{minutes}") ]})
+    out = agent.invoke({"messages": [("user", f"Získaj LAN pre {serial} za {minutes} minút") ]})
     console.print(out["messages"][-1].content)
 
 @app.command()
