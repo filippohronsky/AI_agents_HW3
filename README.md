@@ -11,7 +11,8 @@ Agent dokáže:
 - vylistovať siete a zariadenia zo zvolenej Meraki organizácie a uložiť ich do lokálnej DB (SQLite),
 - získať **WAN utilisation** (uplinks usage) naprieč sieťami a uložiť výsledky,
 - získať **LAN utilisation** pre **Meraki MS** (switch) – status/traffic portov za zvolený interval.
-
+## Vizualizácia ReAct agenta
+![SQL databáza - ukážka č. 1](výstupy/graph.png)
 ## Ukážka výstupov
 ### Výstup tabuľky Devices pri použití príkazu bootstrap
 ![SQL databáza - ukážka č. 1](výstupy/sqlite3-1.png)

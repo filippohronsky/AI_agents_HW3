@@ -44,6 +44,29 @@ def bootstrap():
     agent.invoke({"messages": [("user", "Vylistuj siete v Meraki a ulož ich do DB")]})
     agent.invoke({"messages": [("user", "Vylistuj zariadenia v Meraki (so sériami) a ulož ich do DB")]})
     console.print("[green]Hotovo.[/green]")
+@app.command("show-graph")
+def show_graph(
+    out: str = typer.Option("graph.png", "--out", "-o", help="Cieľový súbor (.png | .svg | .mermaid)"),
+):
+    """
+    Vykreslí graf agenta. Pre .png/.svg treba mať nainštalovaný Graphviz.
+    """
+    agent = build_agent()
+    g = agent.get_graph()
+
+    if out.endswith(".png"):
+        g.draw_png(out)   # vyžaduje Graphviz
+        console.print(f"[green]Uložené:[/green] {out}")
+    elif out.endswith(".svg"):
+        g.draw_svg(out)   # vyžaduje Graphviz
+        console.print(f"[green]Uložené:[/green] {out}")
+    elif out.endswith(".mermaid"):
+        with open(out, "w", encoding="utf-8") as f:
+            f.write(g.draw_mermaid())
+        console.print(f"[green]Uložené:[/green] {out}")
+    else:
+        # fallback: vypíš Mermaid do konzoly
+        console.print(g.draw_mermaid())
 
 if __name__ == "__main__":
     app()
