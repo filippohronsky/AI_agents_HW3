@@ -11,13 +11,16 @@ Agent dokáže:
 - získať **LAN utilisation** pre **Meraki MS** (switch) – status/traffic portov za zvolený interval.
 
 ## Ukážka výstupov
-Výstup tabuľky Devices pri použití príkazu bootstrap
+### Výstup tabuľky Devices pri použití príkazu bootstrap
 ![SQL databáza - ukážka č. 1](výstupy/sqlite3-1.png)
 
-Výstup tabuľky Networks pri použití príkazu bootstrap
+### Výstup tabuľky Networks pri použití príkazu bootstrap
 ![SQL databáza - ukážka č. 1](výstupy/sqlite3-2.png)
 
-Ukážka správy v MS Teams kanáli cez Webhook
+### Výstup tabuľky wan_usage pri použití príkazu wan --hours 6
+![MS Team odpoveď Agenta AI](výstupy/sqlite3-3.png)
+
+### Ukážka správy v MS Teams kanáli cez Webhook
 ![MS Team odpoveď Agenta AI](výstupy/Teams.png)
 
 ## Požiadavky
@@ -48,7 +51,7 @@ MERAKI_ORG_ID=123456
 
 ## Use‑cases
 
-Nižšie sú tri overené príkazy vrátane **skutočných výstupov** z behu.
+Nižšie sú štyri overené príkazy vrátane **skutočných výstupov** z behu.
 
 ### 1) Bootstrap – načítaj siete a zariadenia do DB
 
