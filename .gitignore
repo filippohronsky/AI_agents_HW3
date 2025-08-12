@@ -1,0 +1,4 @@
+.idea/
+.env
+data.sqlite3
+uv.lock

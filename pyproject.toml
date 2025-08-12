@@ -1,0 +1,6 @@
+[project]
+name = "ai-agents-hw3"
+version = "0.1.0"
+description = "Meraki Agent ako AI kurz HW č.3"
+requires-python = ">=3.13"
+dependencies = []
