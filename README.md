@@ -1,6 +1,6 @@
 # MerakiOps ReAct Agent
 
-Dokument popisuje rýchly štart a verifikáciu troch základných use‑cases agenta postaveného na **LangGraph (ReAct)** s Meraki API. Nepoužili LiteLLM, ale dávam vám na výber OpenAI API alebo lokálny ollama model.
+Dokument popisuje rýchly štart a verifikáciu troch základných use‑cases agenta postaveného na **LangGraph (ReAct)** s Meraki API. Nepoužil som integráciu s LiteLLM, ale dávam vám na výber OpenAI API alebo lokálny ollama model.
 
 ## O projekte
 
