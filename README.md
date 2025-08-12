@@ -100,7 +100,13 @@ uv run -m src.app chat "Vyhľadaj nové hrozby pre Meraki tento týždeň a poš
 ```
 Zhrnutie nových hrozieb pre Meraki tento týždeň bolo úspešne odoslané do Teams. Obsahovalo odkazy na relevantné stránky.
 ```
+### Ako vizualizovať Nodes a Edges Reason and Act agenta
 
+```bash
+uv run -m src.app show-graph -o graph.png      # PNG (potrebuje Graphviz)
+uv run -m src.app show-graph -o graph.svg      # SVG (potrebuje Graphviz)
+uv run -m src.app show-graph -o graph.mermaid  # Mermaid text (bez Graphviz)```
+```
 ---
 
 ## Poznámky a tipy
