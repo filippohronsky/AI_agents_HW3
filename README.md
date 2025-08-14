@@ -94,12 +94,14 @@ Zdá sa, že zariadenie s sériovým číslom Q234-ABCD-1234 nie je podporované
 ### 4) komunikácia s serpAPI od Google a odpoveď do MS Teams
 
 ```bash
-uv run -m src.app chat "Vyhľadaj nové hrozby pre Meraki tento týždeň a pošli zhrnutie do Teams"
+uv run -m src.app chat "Vyhľadaj nové hrozby publikované v CVE pre Meraki MX za posledné tri mesiace a v ktorej verzii softvéru boli opravené. Výstup svojej správy pošli do Teams"
 ```
 **Očakávaný výstup CLI**
 ```
-Zhrnutie nových hrozieb pre Meraki tento týždeň bolo úspešne odoslané do Teams. Obsahovalo odkazy na relevantné stránky.
+Správa o nových hrozbách pre Meraki MX bola úspešne odoslaná do Teams. Obsahuje odkazy na relevantné CVE a informácie o opravách v posledných verziách softvéru.
 ```
+Očakávaný výstup v MS Teams je na obrázku na začiatku dokuemntu.
+
 ### Ako vizualizovať Nodes a Edges Reason and Act agenta
 
 ```bash
