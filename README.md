@@ -100,7 +100,7 @@ uv run -m src.app chat "Vyhľadaj nové hrozby publikované v CVE pre Meraki MX 
 ```
 Správa o nových hrozbách pre Meraki MX bola úspešne odoslaná do Teams. Obsahuje odkazy na relevantné CVE a informácie o opravách v posledných verziách softvéru.
 ```
-Očakávaný výstup v MS Teams je na obrázku na začiatku dokuemntu.
+Očakávaný výstup v MS Teams je na obrázku na začiatku dokumentu.
 
 ### Ako vizualizovať Nodes a Edges Reason and Act agenta
 
